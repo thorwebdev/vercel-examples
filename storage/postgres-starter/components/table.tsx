@@ -9,16 +9,16 @@ export default async function Table() {
   let startTime = Date.now()
 
   try {
-    data = await sql`SELECT * FROM thortest_users`
+    data = await sql`SELECT * FROM thortest_vpg_users`
   } catch (e: any) {
-    if (e.message === `relation "thortest_users" does not exist`) {
+    if (e.message === `relation "thortest_vpg_users" does not exist`) {
       console.log(
         'Table does not exist, creating and seeding it with dummy data now...'
       )
       // Table is not created yet
       await seed()
       startTime = Date.now()
-      data = await sql`SELECT * FROM thortest_users`
+      data = await sql`SELECT * FROM thortest_vpg_users`
     } else {
       throw e
     }
