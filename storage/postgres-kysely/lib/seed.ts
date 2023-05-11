@@ -2,7 +2,7 @@ import { db, sql } from '@/lib/kysely'
 
 export async function seed() {
   const createTable = await db.schema
-    .createTable('users')
+    .createTable('thortest_vpgkysely_users')
     .ifNotExists()
     .addColumn('id', 'serial', (cb) => cb.primaryKey())
     .addColumn('name', 'varchar(255)', (cb) => cb.notNull())
@@ -12,9 +12,9 @@ export async function seed() {
       cb.defaultTo(sql`current_timestamp`)
     )
     .execute()
-  console.log(`Created "users" table`)
+  console.log(`Created "thortest_vpgkysely_users" table`)
   const addUsers = await db
-    .insertInto('users')
+    .insertInto('thortest_vpgkysely_users')
     .values([
       {
         name: 'Guillermo Rauch',

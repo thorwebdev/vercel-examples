@@ -20,7 +20,7 @@ interface UserTable {
 
 // Keys of this interface are table names.
 export interface Database {
-  users: UserTable
+  thortest_vpgkysely_users: UserTable
 }
 
 export const db = createKysely<Database>()
